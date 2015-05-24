@@ -15,9 +15,9 @@ type Deck struct {
 	cards [52]Card
 }
 
-var Suits   []string = []string{"♤", "♥", "♢", "♧"}
-var Values  []string=  []string{
-	"Ace", "Two", "Three", "Four","Five",
+var Suits []string = []string{"♤", "♥", "♢", "♧"}
+var Values []string = []string{
+	"Ace", "Two", "Three", "Four", "Five",
 	"Six", "Seven", "Eight", "Nine", "Ten",
 	"Jack", "Queen", "King"}
 
@@ -26,10 +26,10 @@ func New() Deck {
 	var i int = 0
 	for k, _ := range d.cards {
 		var c = (i * 13) - k + 1
-		if k % 13 == 0 {
+		if k%13 == 0 {
 			i++
 		}
-		d.cards[k] = Card{Suits[i - 1], c}
+		d.cards[k] = Card{Suits[i-1], c}
 	}
 	return d
 }
@@ -49,7 +49,7 @@ func (d *Deck) Print() {
 }
 
 func (c *Card) Name() string {
-	return fmt.Sprintf("%s (%d) %s", Values[c.value - 1], c.value,  c.suit)
+	return fmt.Sprintf("%s (%d) %s", Values[c.value-1], c.value, c.suit)
 }
 
 func main() {
